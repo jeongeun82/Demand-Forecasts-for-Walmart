@@ -6,7 +6,7 @@
 
 # 과정
 1. 데이터 전처리
- 1) item level clustering(preprocessing_clustering_item_storedept.ipynb)
+ (1) item level clustering(preprocessing_clustering_item_storedept.ipynb)
  - sales_train_evaluation.csv의 데이터 중 item_id가 같은 상품을 묶어 일별 판매량 평균 산출
  - 판매량 추이 데이터를 time seriese k-means를 통해 유사한 판매량 추이를 가지고 있는 item을 10개의 클러스터로 클러스터링(metric=euclidean)
  - 추후 모델 트레이닝 시 발생하는 메모리 에러 발생 방지를 위해 각 클러스터 내의 데이터 개수가 10,000개 이상인 클러스터(클러스터에 속하는 item의 개수가 1,000개 이상인 클러스터)를 선택하여 5개의 클러스터로 재클러스터링
