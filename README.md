@@ -6,18 +6,18 @@
 
 # 과정
 1. 데이터 전처리   
-(1) item level clustering(preprocessing_clustering_item_storedept.ipynb)
- - sales_train_evaluation.csv의 데이터 중 item_id가 같은 상품을 묶어 일별 판매량 평균 산출
- - 판매량 추이 데이터를 time seriese k-means를 통해 유사한 판매량 추이를 가지고 있는 item을 10개의 클러스터로 클러스터링(metric=euclidean)
- - 추후 모델 트레이닝 시 발생하는 메모리 에러 발생 방지를 위해 각 클러스터 내의 데이터 개수가 10,000개 이상인 클러스터(클러스터에 속하는 item의 개수가 1,000개 이상인 클러스터)를 선택하여 5개의 클러스터로 재클러스터링
- - 클러스터 레이블 중복 방지를 위해 재클러스터링한 레이블을 변경한 후, 각 아이템별로 해당하는 클러스터 레이블 넘버 컬럼을 결합
- - 기존 데이터셋에 item_id를 기준으로 클러스터 레이블 넘버 컬럼 결합   
-(2) store-department level clustering(preprocessing_clustering_item_storedept.ipynb)
- - sales_train_evaluation.csv의 데이터 중 store_id와 dept_id가 같은 상품을 묶어 일별 판매량 평균 산출(70개 항목 생성)
- - 판매량 추이 데이터를 time seriese k-means를 통해 유사한 판매량 추이를 가지고 있는 item을 10개의 클러스터로 클러스터링(metric=euclidean)
- - 기존 데이터셋에 각 store, department id별로 해당하는 클러스터 레이블 넘버 컬럼을 결합   
-(3) 모델 구축 시 활용할 feature 생성(preprocessing-cluster.ipynb)
- - 기존 DRFAM 모델 구축 시 진행했던 데이터 전처리 과정과 동일
+ (1) item level clustering(preprocessing_clustering_item_storedept.ipynb)
+  - sales_train_evaluation.csv의 데이터 중 item_id가 같은 상품을 묶어 일별 판매량 평균 산출
+  - 판매량 추이 데이터를 time seriese k-means를 통해 유사한 판매량 추이를 가지고 있는 item을 10개의 클러스터로 클러스터링(metric=euclidean)
+  - 추후 모델 트레이닝 시 발생하는 메모리 에러 발생 방지를 위해 각 클러스터 내의 데이터 개수가 10,000개 이상인 클러스터(클러스터에 속하는 item의 개수가 1,000개 이상인 클러스터)를 선택하여 5개의 클러스터로 재클러스터링
+  - 클러스터 레이블 중복 방지를 위해 재클러스터링한 레이블을 변경한 후, 각 아이템별로 해당하는 클러스터 레이블 넘버 컬럼을 결합
+  - 기존 데이터셋에 item_id를 기준으로 클러스터 레이블 넘버 컬럼 결합   
+ (2) store-department level clustering(preprocessing_clustering_item_storedept.ipynb)
+  - sales_train_evaluation.csv의 데이터 중 store_id와 dept_id가 같은 상품을 묶어 일별 판매량 평균 산출(70개 항목 생성)
+  - 판매량 추이 데이터를 time seriese k-means를 통해 유사한 판매량 추이를 가지고 있는 item을 10개의 클러스터로 클러스터링(metric=euclidean)
+  - 기존 데이터셋에 각 store, department id별로 해당하는 클러스터 레이블 넘버 컬럼을 결합   
+(3) 모델 구축 시 활용할 feature 생성(preprocessing-cluster.ipynb, 1. preprocessing-itemcluster.ipynb)
+  - 기존 DRFAM 모델 구축 시 진행했던 데이터 전처리 과정과 동일
  
 2. TRAIN(1-1. recursive_deptstore_cluster10_TRAIN.ipynb, 1-1. recursive_item_clustering_TRAIN.ipynb, 2-3. nonrecursive_storedept_cluster_TRAIN.ipynb, 2-1. nonrecursive_item_clustering_TRAIN.ipynb)
 - recursive와 non-recursive 모델을 각각 구축(item level: 14 *2 = 28개 모델, store-dept level: 10 * 2 = 20개 모델)
